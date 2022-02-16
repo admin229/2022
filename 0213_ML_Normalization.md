@@ -1,5 +1,5 @@
 # Normalization
-## Why
+## 1 Why Normalization
 
 1. **从logistics regression说起**：由于weights初始化都在差不多的值域范围内，如果特征值域相差较大，损失函数的求导会受到值域更大的特征的主导，因此需要对特征进行标准化处理。
 
@@ -9,7 +9,7 @@
 
 <br/>
 
-## Normalization 算法
+## 2 Normalization 算法
 从标准化的出发点而言，期待的结果是经过标准化算法后输入向量的各个值都被放缩到一个相近的范围。假设特征值均服从高斯分布，那么一种手段就是将各个特征放缩到同样均值方差的分布，即：
 
 $$x'=\frac{x - \mu}{\sigma}$$
@@ -20,7 +20,7 @@ $$x'=\gamma * \frac{x - \mu}{\sigma} + \beta$$
 
 <br/>
 
-### BatchNorm：纵向标准化(Google, 2015)
+### 2.1 BatchNorm：纵向标准化(Google, 2015)
 
 
 BatchNorm的Batch就是Minibatch的Batch，不难理解，就是按照对若干样本的同一个特征进行标准化。(下面是一个minibatch的例子，字母代表不同特征，数字代表不同样本，bn可以理解成纵向也就是样本维度的标准化)。
@@ -37,7 +37,7 @@ bn的问题在于当batchsize较小或是不同batch的分布差异较大时结�
 
 <br/>
 
-### LayerNorm：横向标准化
+### 2.2 LayerNorm：横向标准化
 
 ln在特征维度进行标准化，避免受到batch的影响，但是可解读性变差。
 
